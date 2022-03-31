@@ -1,5 +1,7 @@
 # Two ways of applying commit rule
 
+글 정리 [husky와 commitlint를 사용하여 commit 규칙을 지키며 협업하기](https://somedaycode.tistory.com/13)
+
 방법 1: githooks 사용
 
 방법 2: husky과 commitlint을 섞어 사용
