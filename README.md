@@ -1,9 +1,12 @@
-# 어떻게 커밋룰은 반강제 할 수 있나?
+# 프로젝트에 커밋룰 적용하기
 
-1. githooks 사용
-2. husky 및 commitlint 사용
+방법 1: githooks 사용
+
+방법 2: husky과 commitlint을 섞어 사용
 
 ## Proceed typing below commands in terminal
+
+---
 
 ```
 yarn add -D husky @commitlint/config-conventional @commitlint/cli
@@ -15,9 +18,15 @@ yarn husky install or npx husky install
 yarn husky add .husky/commit-msg "yarn commitlint --edit $1"
 ```
 
-## @commitlint/config-conventional 기본 설정
+
+## 기본 커밋 규칙
+
+---
+
 
 ```js
+// @commitlint/config-conventional 기본 설정
+
 module.exports = {
   parserPreset: 'conventional-changelog-conventionalcommits',
   rules: {
@@ -95,7 +104,11 @@ module.exports = {
 
 ## Custom Rule 설정하기
 
+---
+
 ```js
+// custom rules 추가
+
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   rules: {
@@ -124,11 +137,21 @@ ex) feat: [frontend] 마우스 더블클릭 후 스타일 변경`
 
 ### TEST
 
-```git commit -m 'docs: README.md'```
+```
+// fail
+git commit -m 'docs: README.md'
 
-![image](https://user-images.githubusercontent.com/71962505/161017529-12628883-4327-4adb-a7a1-c3ccadae452e.png)
+or
 
+git commit -m 'docs:[frontend]
+```
 
-```git commit -m 'docs:[frontend]```
+![image](https://user-images.githubusercontent.com/71962505/161019591-eec57f34-924d-482c-8186-25236258d8f3.png)
 
 ![image](https://user-images.githubusercontent.com/71962505/161019121-931049f2-7570-4569-80c5-bc11c0300a27.png)
+
+
+```
+//success
+git commit -m 'docs: [frontend] README.md'
+```
