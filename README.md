@@ -1,4 +1,4 @@
-# two ways of applying commit rule
+# Two ways of applying commit rule
 
 방법 1: githooks 사용
 
