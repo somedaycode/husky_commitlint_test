@@ -1,4 +1,4 @@
-# 프로젝트에 커밋룰 적용하기
+# two ways of applying commit rule
 
 방법 1: githooks 사용
 
@@ -19,7 +19,7 @@ yarn husky add .husky/commit-msg "yarn commitlint --edit $1"
 ```
 
 
-## 기본 커밋 규칙
+## Default
 
 ---
 
@@ -102,7 +102,7 @@ module.exports = {
 }
 ```
 
-## Custom Rule 설정하기
+## Custom Rule
 
 ---
 
