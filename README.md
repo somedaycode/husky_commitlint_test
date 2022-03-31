@@ -107,9 +107,11 @@ module.exports = {
         'develop-rule': ({subject}) => {
           const commitFolders = ['[frontend]', '[backend]', '[domain]', '[root]'];
           return [
-            commitFolders.some((folder) => subject?.startsWith(folder)),
+            commitFolders.some((folder) => subject?.startsWith(folder) !== subject?.endsWith(folder)),
             `\n${commitFolders.map(folder => `${folder}\n`).join('')}
 위 네 가지 중 한 가지는 반드시 콜론(:) 뒤에 포함되어야 합니다.
+[name] 뒤에 메시지 입력은 필수입니다.
+
 ex) feat: [frontend] 마우스 더블클릭 후 스타일 변경`
           ]
         },
@@ -117,4 +119,16 @@ ex) feat: [frontend] 마우스 더블클릭 후 스타일 변경`
     }
   ]
 };
+
 ```
+
+### TEST
+
+```git commit -m 'docs: README.md'```
+
+![image](https://user-images.githubusercontent.com/71962505/161017529-12628883-4327-4adb-a7a1-c3ccadae452e.png)
+
+
+```git commit -m 'docs:[frontend]```
+
+![image](https://user-images.githubusercontent.com/71962505/161019121-931049f2-7570-4569-80c5-bc11c0300a27.png)
